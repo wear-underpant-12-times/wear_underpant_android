@@ -5,6 +5,7 @@ import android.util.Log;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
+import java.util.Arrays;
 
 /**
  * Representation of an IP Packet
@@ -302,7 +303,7 @@ public class Packet
                 }
                 else
                 {
-                    Log.i(TAG,"numberToEnum protocolNumber:"+protocolNumber);
+//                    Log.i(TAG,"numberToEnum protocolNumber:"+protocolNumber);
                     return Other;
                 }
             }
@@ -511,6 +512,7 @@ public class Packet
 
         public int length;
         public int checksum;
+        public byte[] content;
 
         private UDPHeader(ByteBuffer buffer)
         {
@@ -519,6 +521,10 @@ public class Packet
 
             this.length = BitUtils.getUnsignedShort(buffer.getShort());
             this.checksum = BitUtils.getUnsignedShort(buffer.getShort());
+//            buffer.get(this.content);
+            this.content = new byte[length];
+//            System.out.println(buffer);
+            this.content = Arrays.copyOfRange(buffer.array(), buffer.position(), buffer.position() + this.length);
         }
 
         private void fillHeader(ByteBuffer buffer)
@@ -528,6 +534,8 @@ public class Packet
 
             buffer.putShort((short) this.length);
             buffer.putShort((short) this.checksum);
+//            this.content = buffer.array();
+
         }
 
         @Override
@@ -538,6 +546,7 @@ public class Packet
             sb.append(", destinationPort=").append(destinationPort);
             sb.append(", length=").append(length);
             sb.append(", checksum=").append(checksum);
+            sb.append(", content=").append(Arrays.toString(content));
             sb.append('}');
             return sb.toString();
         }

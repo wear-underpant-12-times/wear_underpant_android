@@ -6,21 +6,67 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/startBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="start"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="289dp" />
+        <EditText
+            android:id="@+id/etIP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="23.106.157.33"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="12dp" />
+
+        <EditText
+            android:id="@+id/etPort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:text="8085"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="62dp" />
+<!--        <EditText-->
+<!--            android:id="@+id/dnsIP"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:ems="10"-->
+<!--            android:inputType="textPersonName"-->
+<!--            android:hint="dns server"-->
+<!--            android:text="8.8.8.8"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            tools:layout_editor_absoluteY="12dp" />-->
+<!--        <EditText-->
+<!--            android:id="@+id/etSockPort"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:ems="10"-->
+<!--            android:inputType="number"-->
+<!--            android:hint="socks port"-->
+<!--            android:text="8083"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            tools:layout_editor_absoluteY="62dp" />-->
+
+        <Button
+            android:id="@+id/startBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="start"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="289dp" />
+        <Button
+            android:id="@+id/listPkgBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="select package"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="289dp" />
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
